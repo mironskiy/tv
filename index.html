@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#3b5bdb">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Доля ТВ">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAChElEQVR42u3dsU3DUBSG0fgpPTMgZQunSY3EAqbNVLRMgJSahi2MlBkyganSUBClIOS+/5wJwn33sw1yxDBO87KCUM0IEAAIAAQAAgABgABAACAAEAAIAAQAAgABgABAACAAEAAIAAQAAgABgABAACAAEAAIAAQAAgABgABAACAAEAAIAAQAAgABgABAACAAEAAIAAQAAgABgABAACAAEAAIAASAAEAAIAAQAAgAMqwrfujD887J3cjT+0fXP98wTvNi8UkNoVl+kuffDJ/kc2iGTvJ5NMMm+Vz8GZRodxuAq7+7gDsACAAEAAIAAUBCAL2/hFVdL+fjDoA7gKsMqefSDJvk82iGTvI5NMMnef6lvhF25j0hix8dAMQ9AoEAQAAgABAACAAEAAIAAYAAQABwWcn/D3DaHyMP6+H10cYmB5C6+D9/fiEEPgKlL79ZBAfgwM0kNgAHbTaxAThgM/IIBIkBuLKZlTsACAAEAAIAAUBCAN53MSt3AEgOwJXNjOLvAA7YbOIfgRy0mcT/DuDAzeIvrCsevK9EEhmARSD2EQgEAAIAAYAAQAAgABAACAAEAAIAAcCvSr4M9/m2+ffPsH35sj0dGMZpXiy+EDwCWf6uPhcdBXDvSyYCAcQvlwgEEL9UIhAACCD5auouIAAQAAgABAACAAFco+o7Nt4NEgAIIPFq6uovgNilsvwCiF0uyy+A2CWz/LWV+kbYma9EEh0AxD0CgQBAACAAEAAIAAQAAgABgABAACAAEAAIAAQAAgABgAAQgBEgABAACAAEAAIAAYAAQAAgABAACAAEAAIAAYAAQAAgABAACAAEAAIAAYAAQAAgABAACAAEAAKAG/oGF4WLYQP5P/8AAAAASUVORK5CYII=">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAACQElEQVR42u3dwa0BYRSGYcReDRJdjI21RANsVWWrAom1jS5I1KAC9hIkE4n/nPM8DVz+efPdkZF7h9368hhAEiNHgKBB0CBoEDSCBkGDoEHQIGgEDYIGQYOgQdAIGgQNggZBg6ARNAgaBA2CBkEjaBA0CBoEDYJG0CBoEDQIGgSNoEHQIGgQNIIGQYOgQdAgaAQNggZBg6BB0AgaBA2CBkHDJ+NIL/a4WrhiP7Q8nNK9p2G3vjyELGxBC1nY7qHF7DehD4UQO2jr7OwtNLQYtHV2DSw0CBpBg6ChcNAZv18QTeRrYKGx0BbCOgsaKgdtpZ15H74Pje9DC1vIggYfCkHQCBoEDYIGQYOgETQIGgQNgoZvQv053fv2lv6CTHZTVWYPukLIr+9V2AmDrhSysJPfQ1eO2Tn4UAjtBm2VnIeFhhaDtkbOxUKDoBE0CBoKB+3JmHOx0NBy0NbIeVhoaDloq+Qc+hhHuJgVn5IJOWHQFcMWcoGgXWx8KETQIGgQNAgaBI2gQdAgaBA0vBfq0fd5P/vLz51vrkoJIsS/Rv5XyMIWdMqQhe0eOm3Mrb82QYOgLaCVFjTUCzrS8llpQYOgQdAIGgT9Y5GewnliKGioF3SE5bPOgoa6Qbe8gNa5Xb4PLWRBVwtbyIIG99AgaBA0ggZBg6BB0CBoBA2CBkGDoBE0CBoEDYIGQSNoEDQIGgQNgkbQIGgQNAgaBI2gQdAgaBA0CBpBg6BB0CBoEDSCBkGDoEHQIGgEDYIGQUM/T/O6hgnRrNZMAAAAAElFTkSuQmCC">
+<title>Доля ТВ</title>
+<style>
+:root{
+  --bg:#f5f6f8;--card:#fff;--ink:#16181d;--mute:#6b7280;--line:#e3e6eb;--field:#fff8d6;--fieldline:#ecd978;
+  --c1:#d98e04;--c2:#0e8f8a;--c3:#3b5bdb;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#101216;--card:#1a1d23;--ink:#eceef2;--mute:#9aa1ad;--line:#2b2f38;--field:#2d2a14;--fieldline:#6b5f1f;--c1:#f0a91c;--c2:#2cc0ba;--c3:#7b93ff}
+}
+:root[data-theme="dark"]{--bg:#101216;--card:#1a1d23;--ink:#eceef2;--mute:#9aa1ad;--line:#2b2f38;--field:#2d2a14;--fieldline:#6b5f1f;--c1:#f0a91c;--c2:#2cc0ba;--c3:#7b93ff}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+button{touch-action:manipulation;-webkit-appearance:none;appearance:none;font-family:inherit}
+input,textarea{-webkit-appearance:none;appearance:none}
+.warn{background:#fff3cd;color:#5c4400;border:1px solid #e6c65c;border-radius:12px;padding:10px 12px;font-size:13px;margin-bottom:12px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .warn{background:#3a3112;color:#f3dfa0;border-color:#6b5f1f}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:560px;margin:0 auto;padding:12px 12px 90px}
+.month{display:flex;align-items:center;justify-content:space-between;margin:4px 0 12px}
+.month h1{font-size:20px;margin:0;font-weight:700}
+.nb{width:44px;height:44px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;font-size:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px}
+.total{font-size:30px;font-weight:700;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.sub{color:var(--mute);font-size:13px}
+.bar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--line);margin:10px 0}
+.bar i{display:block;height:100%}
+.legend{display:grid;gap:8px}
+.lg{display:flex;align-items:center;font-variant-numeric:tabular-nums}.lg>*{margin-right:8px}.lg>b{margin-right:8px}
+.dot{width:12px;height:12px;border-radius:4px;flex:none}
+.lg b{margin-left:auto;font-weight:600}.lg>.p{margin-right:0}
+.lg span.p{width:58px;text-align:right;font-weight:700}
+.day{border-bottom:1px solid var(--line)}
+.day:last-child{border:0}
+.dh{display:flex;align-items:center;width:100%;padding:12px 2px;background:none;border:0;color:inherit;font:inherit;text-align:left}
+.dd{width:62px;flex:none;font-weight:600;margin-right:10px}.dm{margin-right:10px}
+.dd small{color:var(--mute);font-weight:400;margin-left:4px}
+.day.today .dd{color:var(--c3)}
+.day.we .dd small{color:#d6453d}
+.dm{flex:1;min-width:0}
+.dm .bar{height:8px;margin:0}
+.dt{width:104px;text-align:right;font-variant-numeric:tabular-nums;color:var(--mute)}
+.dt.has{color:var(--ink);font-weight:600}
+.di{display:none;padding:0 2px 14px;gap:8px;grid-template-columns:repeat(3,1fr)}
+.day.open .di{display:grid}
+.di label{font-size:12px;color:var(--mute);display:block;margin-bottom:4px}
+.di label em{font-style:normal;display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px}
+.di input{width:100%;height:46px;border:1.5px solid var(--fieldline);background:var(--field);color:var(--ink);border-radius:10px;padding:0 10px;font:inherit;font-size:16px;font-variant-numeric:tabular-nums}
+.di input:focus{outline:2px solid var(--c3);outline-offset:1px}
+.fw{position:relative}.fw input{padding-right:42px}.pl{position:absolute;right:4px;top:4px;width:38px;height:38px;border:0;border-radius:8px;background:var(--c3);color:#fff;font-size:22px;line-height:1;padding:0}
+.pcts{grid-column:1/-1;font-size:13px;color:var(--mute);display:flex;justify-content:space-between}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px}
+th{font-weight:500;color:var(--mute);text-align:right;padding:6px 4px;font-size:12px}
+th:first-child,td:first-child{text-align:left}
+td{padding:9px 4px;text-align:right;border-top:1px solid var(--line)}
+td small{display:block;color:var(--mute);font-size:11px}
+tr.tot td{font-weight:700}
+.sc{overflow-x:auto}
+.wk{margin-bottom:14px}
+.wk h3{margin:0 0 6px;font-size:15px;display:flex;justify-content:space-between}
+.wk h3 span{color:var(--mute);font-weight:400;font-size:13px}
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);display:flex;padding:6px 8px 6px;padding-bottom:calc(6px + env(safe-area-inset-bottom,0px));z-index:5}
+nav button+button{margin-left:6px}nav button{flex:1;height:46px;border:0;border-radius:12px;background:none;color:var(--mute);font:inherit;font-weight:600}
+nav button.on{background:var(--bg);color:var(--ink)}
+.btn{height:46px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:600;padding:0 14px;width:100%;margin-top:8px}
+.btn.pri{background:var(--c3);border-color:var(--c3);color:#fff}
+.btn.dng{color:#d6453d}
+textarea{width:100%;min-height:110px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);padding:10px;font:12px/1.4 ui-monospace,monospace;margin-top:8px}
+.msg{font-size:13px;color:var(--c2);min-height:18px;margin-top:6px}
+.hid{display:none}
+h2{font-size:16px;margin:0 0 4px}
+p{margin:4px 0}
+</style>
+</head>
+<body>
+<noscript><p style="padding:16px">Для работы нужен JavaScript.</p></noscript>
+<main>
+  <div class="warn hid" id="warn"></div>
+  <div class="month">
+    <button class="nb" id="prev" aria-label="Предыдущий месяц">‹</button>
+    <h1 id="mt"></h1>
+    <button class="nb" id="next" aria-label="Следующий месяц">›</button>
+  </div>
+
+  <section id="v-in">
+    <div class="card" id="sum"></div>
+    <div class="card" id="days"></div>
+  </section>
+
+  <section id="v-wk" class="hid">
+    <div class="card" id="wsum"></div>
+    <div class="card" id="weeks"></div>
+  </section>
+
+  <section id="v-set" class="hid">
+    <div class="card">
+      <h2>Резервная копия</h2>
+      <p class="sub">Данные хранятся только в этом браузере на телефоне. Если очистишь данные сайта, они пропадут — поэтому иногда копируй их.</p>
+      <button class="btn pri" id="exp">Скопировать копию</button>
+      <textarea id="ta" placeholder="Сюда вставь копию, чтобы восстановить данные"></textarea>
+      <button class="btn" id="imp">Восстановить из вставленного</button>
+      <div class="msg" id="msg"></div>
+    </div>
+    <div class="card">
+      <h2>Таблица для Excel</h2>
+      <p class="sub">Выбранный месяц в виде текста с табуляцией — вставь в Excel или Google Таблицы.</p>
+      <button class="btn" id="tsv">Скопировать месяц</button>
+    </div>
+    <div class="card">
+      <button class="btn dng" id="clr">Очистить выбранный месяц</button>
+    </div>
+  </section>
+</main>
+
+<nav>
+  <button id="t-in" class="on">Ввод</button>
+  <button id="t-wk">Недели</button>
+  <button id="t-set">Данные</button>
+</nav>
+
+<script>
+(function(){
+  // --- совместимость со старыми версиями Яндекс.Браузера / WebView ---
+  if(!String.prototype.padStart){String.prototype.padStart=function(n,s){var t=String(this);s=(s===undefined?' ':String(s))||' ';while(t.length<n)t=s+t;return t}}
+  var EP=Element.prototype;
+  if(!EP.matches)EP.matches=EP.webkitMatchesSelector||EP.msMatchesSelector;
+  if(!EP.closest)EP.closest=function(s){var e=this;while(e&&e.nodeType===1){if(e.matches(s))return e;e=e.parentNode}return null};
+  // --- хранилище: localStorage, а если закрыт — память на время сессии ---
+  var mem={},lsOk=true;
+  try{var tk='__t';localStorage.setItem(tk,'1');localStorage.removeItem(tk)}catch(e){lsOk=false}
+  var LS={
+    get:function(k){if(lsOk){try{return localStorage.getItem(k)}catch(e){lsOk=false}}return Object.prototype.hasOwnProperty.call(mem,k)?mem[k]:null},
+    set:function(k,v){if(lsOk){try{localStorage.setItem(k,v);return}catch(e){lsOk=false}}mem[k]=v}
+  };
+  var KEY='dolya-tv:v1';
+  var BR=[{n:'Левак',c:'var(--c1)'},{n:'Haier',c:'var(--c2)'},{n:'Hisense',c:'var(--c3)'}];
+  var MN=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+  var WD=['пн','вт','ср','чт','пт','сб','вс'];
+  var store={};
+  try{var raw=LS.get(KEY);if(raw)store=JSON.parse(raw)||{};}catch(e){store={};}
+  function save(){try{LS.set(KEY,JSON.stringify(store));}catch(e){}}
+  // Данные из Excel (ноябрь 2026) — загружаются один раз при первом запуске
+  try{
+    if(!LS.get(KEY+':seed')){
+      if(!store['2026-11'])store['2026-11']={1:[486189,55898,170895],2:[102094,53498,59698],3:[198992,25999,0],4:[275089,0,365194],5:[28097,0,247994]};
+      save();LS.set(KEY+':seed','1');
+    }
+  }catch(e){}
+
+  var now=new Date();
+  var Y=now.getFullYear(),M=now.getMonth();
+  var openDay=(now.getDate());
+  var $=function(id){return document.getElementById(id)};
+
+  function mk(){return Y+'-'+String(M+1).padStart(2,'0')}
+  function dim(){return new Date(Y,M+1,0).getDate()}
+  function getDay(d){var m=store[mk()];return (m&&m[d])||[0,0,0]}
+  function setVal(d,i,v){var k=mk();store[k]=store[k]||{};var a=(store[k][d]||[0,0,0]).slice();a[i]=v;
+    if(a.every(function(x){return !x}))delete store[k][d];else store[k][d]=a;save();}
+  function sum(a){return a[0]+a[1]+a[2]}
+  function rub(n){return Math.round(n).toLocaleString('ru-RU')+' ₽'}
+  function pc(v,t){return t?(v/t*100).toFixed(1).replace('.',',')+'%':'0%'}
+  function barHtml(a){var t=sum(a);if(!t)return '<div class="bar"></div>';
+    return '<div class="bar">'+a.map(function(v,i){return '<i style="width:'+(v/t*100)+'%;background:'+BR[i].c+'"></i>'}).join('')+'</div>'}
+  function wdIdx(d){return (new Date(Y,M,d).getDay()+6)%7}
+  function isToday(d){return Y===now.getFullYear()&&M===now.getMonth()&&d===now.getDate()}
+
+  function weeks(){
+    var res=[],cur=null,n=dim();
+    for(var d=1;d<=n;d++){
+      if(!cur||wdIdx(d)===0){cur={from:d,to:d,t:[0,0,0]};res.push(cur)}
+      cur.to=d;var a=getDay(d);for(var i=0;i<3;i++)cur.t[i]+=a[i];
+    }
+    return res;
+  }
+  function monthTot(){var t=[0,0,0];for(var d=1;d<=dim();d++){var a=getDay(d);for(var i=0;i<3;i++)t[i]+=a[i]}return t}
+  function p2(n){return String(n).padStart(2,'0')}
+
+  function legend(t){
+    var T=sum(t);
+    return '<div class="legend">'+BR.map(function(b,i){
+      return '<div class="lg"><span class="dot" style="background:'+b.c+'"></span>'+b.n+'<b>'+rub(t[i])+'</b><span class="p">'+pc(t[i],T)+'</span></div>'}).join('')+'</div>';
+  }
+
+  function renderSum(){
+    var t=monthTot();
+    var h='<div class="sub">Оборот за месяц</div><div class="total">'+rub(sum(t))+'</div>'+barHtml(t)+legend(t);
+    $('sum').innerHTML=h;
+    $('wsum').innerHTML=h;
+  }
+
+  function renderWeeks(){
+    var ws=weeks(),mm=p2(M+1);
+    $('weeks').innerHTML=ws.map(function(w,k){
+      var T=sum(w.t);
+      return '<div class="wk"><h3>Неделя '+(k+1)+'<span>'+p2(w.from)+'.'+mm+(w.to!==w.from?'–'+p2(w.to)+'.'+mm:'')+' · '+rub(T)+'</span></h3>'+barHtml(w.t)+
+        '<table><tr><th></th><th>Оборот</th><th>Доля</th></tr>'+BR.map(function(b,i){
+          return '<tr><td><span class="dot" style="background:'+b.c+';display:inline-block;margin-right:6px;vertical-align:-1px"></span>'+b.n+'</td><td>'+rub(w.t[i])+'</td><td>'+pc(w.t[i],T)+'</td></tr>'}).join('')+'</table></div>';
+    }).join('');
+  }
+
+  function dayHead(d){
+    var a=getDay(d),T=sum(a);
+    return '<div class="dd">'+d+'<small>'+WD[wdIdx(d)]+'</small></div><div class="dm">'+barHtml(a)+'</div><div class="dt'+(T?' has':'')+'">'+(T?rub(T):'—')+'</div>';
+  }
+  function pctLine(d){
+    var a=getDay(d),T=sum(a);
+    return BR.map(function(b,i){return '<span>'+b.n+' '+pc(a[i],T)+'</span>'}).join('');
+  }
+
+  function renderDays(){
+    var out='';
+    for(var d=1;d<=dim();d++){
+      var a=getDay(d),wi=wdIdx(d);
+      out+='<div class="day'+(d===openDay?' open':'')+(isToday(d)?' today':'')+(wi>=5?' we':'')+'" id="d'+d+'" data-d="'+d+'">'+
+        '<button class="dh" type="button">'+dayHead(d)+'</button><div class="di">'+
+        BR.map(function(b,i){return '<div><label for="i'+d+'_'+i+'"><em style="background:'+b.c+'"></em>'+b.n+'</label><div class="fw"><input id="i'+d+'_'+i+'" data-i="'+i+'" inputmode="decimal" autocomplete="off" placeholder="0" value="'+(a[i]||'')+'"><button type="button" class="pl" tabindex="-1" aria-label="Плюс">+</button></div></div>'}).join('')+
+        '<div class="pcts">'+pctLine(d)+'</div></div></div>';
+    }
+    $('days').innerHTML=out;
+  }
+
+  function renderAll(){
+    $('mt').textContent=MN[M]+' '+Y;
+    renderSum();renderDays();renderWeeks();
+  }
+
+  $('days').addEventListener('click',function(e){
+    var h=e.target.closest('.dh');if(!h)return;
+    var day=h.parentNode;var d=+day.dataset.d;
+    var was=day.classList.contains('open');
+    var o=document.querySelector('.day.open');if(o)o.classList.remove('open');
+    if(!was){day.classList.add('open');openDay=d;var f=day.querySelector('input');setTimeout(function(){f.focus()},0)}else openDay=0;
+  });
+  $('days').addEventListener('input',function(e){
+    var el=e.target;if(el.tagName!=='INPUT')return;
+    var day=el.closest('.day'),d=+day.dataset.d,i=+el.dataset.i;
+    var v=calc(el.value);
+    setVal(d,i,v);
+    day.querySelector('.dh').innerHTML=dayHead(d);
+    day.querySelector('.pcts').innerHTML=pctLine(d);
+    renderSum();renderWeeks();
+  });
+
+  function calc(s){var t=0;String(s).replace(/\s/g,'').replace(/,/g,'.').split('+').forEach(function(p){var x=parseFloat(p);if(isFinite(x)&&x>0)t+=x});return t}
+  $('days').addEventListener('mousedown',function(e){if(e.target.closest('.pl'))e.preventDefault()});
+  $('days').addEventListener('click',function(e){var b=e.target.closest('.pl');if(!b)return;var inp=b.parentNode.querySelector('input');if(inp.value&&!/\+$/.test(inp.value))inp.value+='+';inp.focus()});
+  $('days').addEventListener('focusout',function(e){var el=e.target;if(el.tagName!=='INPUT'||el.value.indexOf('+')<0)return;var v=calc(el.value);el.value=v||''});
+  function shift(n){M+=n;if(M<0){M=11;Y--}if(M>11){M=0;Y++}
+    openDay=(Y===now.getFullYear()&&M===now.getMonth())?now.getDate():0;renderAll();window.scrollTo(0,0)}
+  $('prev').onclick=function(){shift(-1)};
+  $('next').onclick=function(){shift(1)};
+
+  var tabs={'t-in':'v-in','t-wk':'v-wk','t-set':'v-set'};
+  Object.keys(tabs).forEach(function(t){
+    $(t).onclick=function(){
+      Object.keys(tabs).forEach(function(x){$(x).classList.toggle('on',x===t);$(tabs[x]).classList.toggle('hid',x!==t)});
+      window.scrollTo(0,0);
+    };
+  });
+
+  function copy(text,done){
+    function fb(){var ta=$('ta');var old=ta.value;ta.value=text;ta.focus();ta.select();var ok=false;try{ok=document.execCommand('copy')}catch(e){}
+      if(!ok){done(false)}else{ta.value=old;done(true)}}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){done(true)},fb)}else fb();
+  }
+  function say(t){$('msg').textContent=t}
+  $('exp').onclick=function(){
+    var j=JSON.stringify(store);
+    copy(j,function(ok){
+      if(ok)say('Копия скопирована. Сохрани её в заметки или отправь себе в мессенджер.');
+      else{$('ta').value=j;$('ta').select();say('Скопируй текст из поля вручную.')}
+    });
+  };
+  $('imp').onclick=function(){
+    try{
+      var o=JSON.parse($('ta').value);
+      if(!o||typeof o!=='object'||Array.isArray(o))throw 0;
+      if(!confirm('Заменить все данные на приложении данными из копии?'))return;
+      store=o;save();renderAll();$('ta').value='';say('Данные восстановлены.');
+    }catch(e){say('Не удалось прочитать копию. Вставь текст целиком.')}
+  };
+  $('tsv').onclick=function(){
+    var rows=[['Дата'].concat(BR.map(function(b){return b.n+', ₽'})).concat(['Оборот за день, ₽'])];
+    for(var d=1;d<=dim();d++){var a=getDay(d);rows.push([p2(d)+'.'+p2(M+1)+'.'+Y,a[0]||'',a[1]||'',a[2]||'',sum(a)])}
+    var t=monthTot();rows.push(['ИТОГО',t[0],t[1],t[2],sum(t)]);
+    var s=rows.map(function(r){return r.join('\t')}).join('\n');
+    copy(s,function(ok){if(ok)say('Таблица скопирована — вставь в Excel.');else{$('ta').value=s;$('ta').select();say('Скопируй текст из поля вручную.')}});
+  };
+  $('clr').onclick=function(){
+    if(!confirm('Удалить все данные за '+MN[M]+' '+Y+'?'))return;
+    delete store[mk()];save();renderAll();say('Месяц очищен.');
+  };
+
+  if(!lsOk){var w=$('warn');w.textContent='Браузер не разрешает сохранять данные на этой странице — после закрытия всё пропадёт. Открой приложение по обычной ссылке (https) или через ярлык на главном экране, а пока делай копию на вкладке «Данные».';w.classList.remove('hid')}
+  // манифест для установки на главный экран (работает при открытии по http/https)
+  try{
+    if(/^https?:$/.test(location.protocol)){
+      var mf={name:'Доля ТВ',short_name:'Доля ТВ',start_url:location.href.split('#')[0],scope:location.href.split('#')[0].replace(/[^\/]*$/,''),display:'standalone',orientation:'portrait',background_color:'#f5f6f8',theme_color:'#3b5bdb',lang:'ru',
+        icons:[{src:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAChElEQVR42u3dsU3DUBSG0fgpPTMgZQunSY3EAqbNVLRMgJSahi2MlBkyganSUBClIOS+/5wJwn33sw1yxDBO87KCUM0IEAAIAAQAAgABgABAACAAEAAIAAQAAgABgABAACAAEAAIAAQAAgABgABAACAAEAAIAAQAAgABgABAACAAEAAIAAQAAgABgABAACAAEAAIAAQAAgABgABAACAAEAAIAASAAEAAIAAQAAgAMqwrfujD887J3cjT+0fXP98wTvNi8UkNoVl+kuffDJ/kc2iGTvJ5NMMm+Vz8GZRodxuAq7+7gDsACAAEAAIAAUBCAL2/hFVdL+fjDoA7gKsMqefSDJvk82iGTvI5NMMnef6lvhF25j0hix8dAMQ9AoEAQAAgABAACAAEAAIAAYAAQABwWcn/D3DaHyMP6+H10cYmB5C6+D9/fiEEPgKlL79ZBAfgwM0kNgAHbTaxAThgM/IIBIkBuLKZlTsACAAEAAIAAUBCAN53MSt3AEgOwJXNjOLvAA7YbOIfgRy0mcT/DuDAzeIvrCsevK9EEhmARSD2EQgEAAIAAYAAQAAgABAACAAEAAIAAcCvSr4M9/m2+ffPsH35sj0dGMZpXiy+EDwCWf6uPhcdBXDvSyYCAcQvlwgEEL9UIhAACCD5auouIAAQAAgABAACAAFco+o7Nt4NEgAIIPFq6uovgNilsvwCiF0uyy+A2CWz/LWV+kbYma9EEh0AxD0CgQBAACAAEAAIAAQAAgABgABAACAAEAAIAAQAAgABgAAQgBEgABAACAAEAAIAAYAAQAAgABAACAAEAAIAAYAAQAAgABAACAAEAAIAAYAAQAAgABAACAAEAAKAG/oGF4WLYQP5P/8AAAAASUVORK5CYII=',sizes:'192x192',type:'image/png',purpose:'any'},{src:'data:image/png;base64,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',sizes:'512x512',type:'image/png',purpose:'any'}]};
+      var l=document.createElement('link');l.rel='manifest';
+      l.href=URL.createObjectURL(new Blob([JSON.stringify(mf)],{type:'application/manifest+json'}));
+      document.head.appendChild(l);
+    }
+  }catch(e){}
+  renderAll();
+  if(openDay){var el=$('d'+openDay);if(el)setTimeout(function(){el.scrollIntoView({block:'center'})},50)}
+})();
+</script>
+</body>
+</html>
